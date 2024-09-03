@@ -1,0 +1,183 @@
+:root {
+  --primary-color: hsl(205, 87%, 15%);
+  --secondary-color: hsl(205, 87%, 30%);
+  --background-color: #f8f9fa;
+  --border-color: #dee2e6;
+  --input-bg: #f5f8fa;
+  --text-color: #333;
+  --result-bg: #f1f8ff;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: var(--primary-color);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.calculator {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.form-container, .result-container {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.result-container {
+  background-color: var(--result-bg);
+  border-left: 1px solid var(--border-color);
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: var(--input-bg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box; /* Add this to include padding in width calculation */
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 20px auto 0;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+.result {
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.result strong {
+  color: var(--secondary-color);
+}
+
+#spouseFields {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    flex-direction: column;
+  }
+
+  .result-container {
+    border-left: none;
+    border-top: 1px solid var(--border-color);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  input, select, button {
+    font-size: 16px;
+  }
+  
+  .form-container, .result-container {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  input, select, button {
+    font-size: 14px;
+    padding: 10px; /* Reduce padding for very small screens */
+  }
+  
+  .form-container, .result-container {
+    padding: 10px; /* Further reduce padding for very small screens */
+  }
+}

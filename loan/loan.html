@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Eligibility Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Loan Eligibility Calculator</h1>
+    <p class="subtitle">Discover the maximum amount you can borrow for your dream home</p>
+    <div class="calculator">
+      <div class="form-container">
+        <section>
+          <h2>Property Details</h2>
+          <div class="input-group">
+            <label for="propertyPrice">Property Valuation (SGD)</label>
+            <input type="number" id="propertyPrice" placeholder="Enter property price">
+          </div>
+          <div class="input-group">
+            <label for="propertyType">Property Type</label>
+            <select id="propertyType">
+              <option value="private">Private Property</option>
+              <option value="hdb">HDB</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="purchaseType">Purchase Type</label>
+            <select id="purchaseType" onchange="toggleSpouseFields()">
+              <option value="single">Single</option>
+              <option value="joint">Joint</option>
+            </select>
+          </div>
+        </section>
+
+        <section>
+          <h2>Borrower 1 Income Details</h2>
+          <div class="input-group">
+            <label for="employmentType">Employment Status</label>
+            <select id="employmentType" onchange="toggleEmploymentFields()">
+              <option value="employee">Employed</option>
+              <option value="self-employed">Self-Employed</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age" min="18" max="65">
+          </div>
+          <div class="input-group employeeField">
+            <label for="basicSalary">Basic Salary (SGD)</label>
+            <input type="number" id="basicSalary" placeholder="Enter your basic salary">
+          </div>
+          <div class="input-group noaField">
+            <label for="noa">Annual Income (SGD)</label>
+            <input type="number" id="noa" placeholder="Enter your NOA amount">
+          </div>
+        </section>
+
+        <section>
+          <h2>Monthly Financial Commitments</h2>
+          <div class="input-group">
+            <label for="creditCardPayment">Monthly Financial Commitments (SGD)</label>
+            <input type="number" id="creditCardPayment" placeholder="Enter Monthly Financial Commitments">
+          </div>
+        </section>
+
+        <section id="spouseFields" class="spouse-field">
+          <h2>Borrower 2's Income Details</h2>
+          <div class="input-group">
+            <label for="spouseEmploymentType">Borrower 2's Employment Status</label>
+            <select id="spouseEmploymentType" onchange="toggleSpouseEmploymentFields()">
+              <option value="employee">Employed</option>
+              <option value="self-employed">Self-Employed</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="spouseAge">Borrower 2's Age</label>
+            <input type="number" id="spouseAge" placeholder="Enter Borrower 2's age" min="18" max="65">
+          </div>
+          <div class="input-group spouseEmployeeField">
+            <label for="spouseBasicSalary">Borrower 2's Basic Salary (SGD)</label>
+            <input type="number" id="spouseBasicSalary" placeholder="Enter Borrower 2's basic salary">
+          </div>
+          <div class="input-group spouseNoaField">
+            <label for="spouseNoa">Borrower 2's Annual Income (SGD)</label>
+            <input type="number" id="spouseNoa" placeholder="Enter Borrower 2's Annual Income">
+          </div>
+          <section>
+            <h2>Borrower 2's Financial Commitments</h2>
+            <div class="input-group">
+              <label for="spouseCreditCardPayment">Borrower 2 Monthly Financial Commitments (SGD)</label>
+              <input type="number" id="spouseCreditCardPayment" placeholder="Enter Borrower 2's Monthly Financial Commitments">
+            </div>
+          </section>
+        </section>
+
+        <button onclick="calculateEligibility()">Calculate Eligibility</button>
+      </div>
+
+      <div class="result-container">
+        <h2>Your Results</h2>
+        <div class="result" id="result">
+          <!-- Result will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
